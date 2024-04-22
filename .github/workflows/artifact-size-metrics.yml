@@ -57,7 +57,7 @@ jobs:
                 repository(owner:"${context.repo.owner}", name:"${context.repo.repo}"){
                   pullRequest(number: ${context.issue.number}) {
                     id
-                    comments(last:200) {
+                    comments(last:100) {
                       nodes {
                         id
                         body
