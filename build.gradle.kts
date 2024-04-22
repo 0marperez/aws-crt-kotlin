@@ -21,6 +21,12 @@ plugins {
     id("artifact-size-metrics") version "0.4.2"
 }
 
+artifactSizeMetrics {
+    artifactPrefixes = setOf(":aws-crt-kotlin")
+    significantChangeThresholdPercentage = 5.0
+    projectRepositoryName = "aws-crt-kotlin"
+}
+
 allprojects {
     repositories {
         mavenLocal()
