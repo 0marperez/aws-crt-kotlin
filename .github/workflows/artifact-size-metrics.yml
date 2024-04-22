@@ -75,7 +75,7 @@ jobs:
             const comments = response.repository.pullRequest.comments.nodes
 
             for (const i in comments) {
-              if (comments[i].author.login == 'github-actions' && !comments[i].isMinimized && comments[i].body.startsWith('Affected Artifacts') {
+              if (comments[i].author.login == 'github-actions' && !comments[i].isMinimized && comments[i].body.startsWith('Affected Artifacts')) {
                 const hideComment = 
                   `mutation { 
                     minimizeComment(input:{subjectId:"${comments[i].id}", classifier:OUTDATED}){
