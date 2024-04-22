@@ -13,7 +13,6 @@ permissions:
 
 jobs:
   release-metrics:
-    if: ${{ github.event_name }} == 'release'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Sources
@@ -33,6 +32,7 @@ jobs:
           aws s3 cp artifact-size-metrics.csv s3://${{ secrets.ARTIFACT_METRICS_BUCKET }}/$REPOSITORY-latest-release.csv
       - name: Put Artifact Size Metrics in CloudWatch
         run: ./gradlew putArtifactSizeMetricsInCloudWatch -Prelease=${{ github.event.release.tag_name }}
+    if: ${{ github.event_name }} == 'release'
   size-check:
     if: ${{ github.event_name }} == 'pull_request'
     runs-on: ubuntu-latest
