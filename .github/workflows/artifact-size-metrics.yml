@@ -102,11 +102,7 @@ jobs:
       - name: Evaluate
         if: ${{ !contains(github.event.pull_request.labels.*.name, 'acknowledge-artifact-size-increase') }}
         run: |
-          cd build 
-          ls
-          cd reports
-          ls
-          cd metrics
+          cd build/reports/metrics
           ls
           cat has-significant-change.txt | grep true
           if [ $? = 0 ]; then 
