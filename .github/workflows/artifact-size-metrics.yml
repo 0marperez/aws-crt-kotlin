@@ -104,6 +104,10 @@ jobs:
         run: |
           cd build 
           ls
+          cd reports
+          ls
+          cd metrics
+          ls
           cat has-significant-change.txt | grep true
           if [ $? = 0 ]; then 
             echo An artifact increased in size by more than allowed or a new artifact was created.
